@@ -16,7 +16,6 @@ const Wrapper = styled(Card)`
   max-width: 600px;
   margin: auto;
 `;
-
 const CardBody = styled(Card.Body)`
   display: flex;
   flex-direction: column;

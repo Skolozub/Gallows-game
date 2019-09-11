@@ -8,7 +8,7 @@ import { createGlobalStyle } from "styled-components";
 import { Start } from "./pages/start";
 import { Game } from "./pages/game";
 
-const history = createBrowserHistory();
+export const history = createBrowserHistory();
 
 const GlobalStyle = createGlobalStyle`
   html, body, #root {
