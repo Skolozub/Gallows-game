@@ -9,9 +9,9 @@ import * as routes from "../constants/routes";
 
 export const Start = () => (
   <StartPageContainer
-    render={({ name, getName, goNextStep }) => (
+    render={({ name, getName, goNextStep, isNameInvalid = !name }) => (
       <MainTemplate title={'Игра "Виселица"'}>
-        <Form.Group controlId="formBasicEmail">
+        <Form.Group>
           <Form.Label>Введите Никнэйм</Form.Label>
           <Form.Control
             type="text"
@@ -25,8 +25,8 @@ export const Start = () => (
             Назад
           </Button>
           <Button
-            disabled={!name}
-            style={{ pointerEvents: `${name ? "" : "none"}` }}
+            disabled={isNameInvalid}
+            style={{ pointerEvents: `${isNameInvalid ? "none" : ""}` }}
             onClick={() => goNextStep(routes.game)}
             variant="success"
           >

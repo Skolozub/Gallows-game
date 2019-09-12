@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { history } from "..";
 
-export const StartPageContainer = ({ render }) => {
+export const StartPageContainer = ({ component: Component, render }) => {
   const [name, setName] = useState("");
 
   const getName = e => setName(e.currentTarget.value);
@@ -11,5 +11,6 @@ export const StartPageContainer = ({ render }) => {
     history.push(linkTo);
   };
 
+  if (Component) return <Component {...{ name, getName, goNextStep }} />;
   return render({ name, getName, goNextStep });
 };

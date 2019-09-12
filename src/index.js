@@ -7,6 +7,7 @@ import * as routes from "./constants/routes";
 import { createGlobalStyle } from "styled-components";
 import { Start } from "./pages/start";
 import { Game } from "./pages/game";
+import { Finish } from "./pages/finish";
 
 export const history = createBrowserHistory();
 
@@ -28,6 +29,7 @@ const App = () => (
         <Route exact path={routes.home} component={Home} />
         <Route path={routes.start} component={Start} />
         <Route path={routes.game} component={Game} />
+        <Route path={routes.finish} component={Finish} />
       </Switch>
     </Router>
   </>
