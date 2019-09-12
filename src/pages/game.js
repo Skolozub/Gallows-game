@@ -2,27 +2,27 @@ import React from "react";
 import { Button } from "react-bootstrap";
 
 import { GamePageContainer } from "../containers/game-page-container";
-import { alphabet } from "../constants/global";
 import styled from "styled-components";
 
 export const Game = () => (
   <GamePageContainer
-    render={({ secret, gameInit, chekPressedLetter }) => (
+    render={({ gameAlphabet, secret, gameInit, setLetter }) => (
       <Wrapper>
         <TopPanel>
           <RestartBtn onClick={gameInit}>Переиграть</RestartBtn>
         </TopPanel>
-        {secret.map(item => (
-          <div>{item}</div>
+        {secret.map((item, index) => (
+          <div key={index}>{item}</div>
         ))}
         <LettersPanel>
-          {alphabet.map(([letter, type]) => (
+          {gameAlphabet.map(([letter, type, isPressed]) => (
             <LetterBtn
               key={letter}
               variant={
                 !type ? "secondary" : type === "vowel" ? "danger" : "primary"
               }
-              onClick={() => chekPressedLetter(letter)}
+              onClick={() => setLetter(letter)}
+              disabled={isPressed}
             >
               {letter}
             </LetterBtn>
