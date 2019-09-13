@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Router } from "react-router";
 import { createBrowserHistory } from "history";
 import { createGlobalStyle } from "styled-components";
-import { Routing } from './routing'
+import { Routing } from "./routing";
 
 export const history = createBrowserHistory();
 
@@ -21,7 +21,7 @@ const App = () => (
   <>
     <GlobalStyle />
     <Router history={history}>
-        <Routing />
+      <Routing />
     </Router>
   </>
 );

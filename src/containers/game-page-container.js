@@ -81,13 +81,21 @@ export const GamePageContainer = ({ component: Component, render }) => {
   console.log(randWord, secret, currentLetter);
   if (Component)
     return (
-      <Component {...{ gameAlphabet, randWord, secret, gameInit, setLetter }} />
+      <Component
+        {...{
+          gameAlphabet,
+          randWord,
+          secret,
+          restartGame: gameInit,
+          setLetter
+        }}
+      />
     );
   return render({
     gameAlphabet,
     randWord,
     secret,
-    gameInit,
+    restartGame: gameInit,
     setLetter
   });
 };

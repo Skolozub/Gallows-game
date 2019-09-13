@@ -7,7 +7,7 @@ import { MainTemplate } from "../templates/main-template";
 import * as routes from "../constants/routes";
 
 export const Finish = () => (
-  <MainTemplate title={"Ура! Вы победили!"}>
+  <MainTemplate header={<Card.Title>Ура! Вы победили!</Card.Title>}>
     <Card.Text>Поздравляем с победой.</Card.Text>
     <Card.Text>
       Но не стоит расслабляться, попробуйте сыграть ещё разок!

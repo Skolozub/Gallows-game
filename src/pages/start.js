@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Form, Button, ButtonToolbar } from "react-bootstrap";
+import { Form, Button, ButtonToolbar, Card } from "react-bootstrap";
 import styled from "styled-components";
-
 import { StartPageContainer } from "../containers/start-page-container";
 import { MainTemplate } from "../templates/main-template";
 import * as routes from "../constants/routes";
@@ -10,7 +9,7 @@ import * as routes from "../constants/routes";
 export const Start = () => (
   <StartPageContainer
     render={({ name, getName, goNextStep, isNameInvalid = !name }) => (
-      <MainTemplate title={'Игра "Виселица"'}>
+      <MainTemplate header={<Card.Title>Игра "Виселица"</Card.Title>}>
         <Form.Group>
           <Form.Label>Введите Никнэйм</Form.Label>
           <Form.Control

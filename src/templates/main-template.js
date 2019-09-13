@@ -2,11 +2,9 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import styled from "styled-components";
 
-export const MainTemplate = ({ title, children }) => (
+export const MainTemplate = ({ header, children }) => (
   <Wrapper bg="dark" text="white">
-    <Card.Header>
-      <Card.Title>{title}</Card.Title>
-    </Card.Header>
+    <Card.Header>{header}</Card.Header>
     <CardBody>{children}</CardBody>
   </Wrapper>
 );
