@@ -9,12 +9,18 @@ import { GallowsPanel } from "../components/gallows-panel";
 
 export const Game = () => (
   <GamePageContainer
-    render={({ gameAlphabet, setLetter, secret, restartGame }) => (
+    render={({
+      gameAlphabet,
+      setLetter,
+      countOfErrorLetters,
+      secret,
+      restartGame
+    }) => (
       <MainTemplate header={<TopPanel {...{ restartGame }} />}>
         <SecretWordPanel {...{ secret }} />
         <BodyWrapper>
           <LeftSide>
-            <GallowsPanel />
+            <GallowsPanel {...{ countOfErrorLetters }} />
           </LeftSide>
           <RightSide>
             <LettersPanel {...{ gameAlphabet, setLetter }} />

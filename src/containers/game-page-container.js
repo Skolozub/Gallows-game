@@ -10,6 +10,7 @@ export const GamePageContainer = ({ component: Component, render }) => {
   const [secret, setSecret] = useState([]);
   const [gameAlphabet, setAlphabet] = useState([]);
   const [currentLetter, setLetter] = useState("");
+  const [countOfErrorLetters, setErrorLetter] = useState(0);
 
   const gameInit = () => {
     const randomWord = generateWord();
@@ -19,6 +20,7 @@ export const GamePageContainer = ({ component: Component, render }) => {
     setSecret(secretDataArray);
     setAlphabet(alphabet);
     setLetter("");
+    setErrorLetter(0);
   };
 
   useEffect(() => {
@@ -42,6 +44,7 @@ export const GamePageContainer = ({ component: Component, render }) => {
       const isLetterNotSet = !currentLetter;
       const isWordNotInit = !randWord.length;
       const isLetterNotInTheWord = !randWord.includes(currentLetter);
+      isLetterNotInTheWord && setErrorLetter(prevCount => prevCount + 1);
       if (isLetterNotSet || isWordNotInit || isLetterNotInTheWord) return null;
 
       const secretChanger = prevSecret =>
@@ -87,7 +90,8 @@ export const GamePageContainer = ({ component: Component, render }) => {
           randWord,
           secret,
           restartGame: gameInit,
-          setLetter
+          setLetter,
+          countOfErrorLetters
         }}
       />
     );
@@ -96,6 +100,7 @@ export const GamePageContainer = ({ component: Component, render }) => {
     randWord,
     secret,
     restartGame: gameInit,
-    setLetter
+    setLetter,
+    countOfErrorLetters
   });
 };
