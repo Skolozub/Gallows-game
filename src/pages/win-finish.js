@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { MainTemplate } from "../templates/main-template";
 import * as routes from "../constants/routes";
 
-export const Finish = () => (
+export const WinFinish = () => (
   <MainTemplate header={<Card.Title>Ура! Вы победили!</Card.Title>}>
     <Card.Text>Поздравляем с победой.</Card.Text>
     <Card.Text>

@@ -27,7 +27,11 @@ export const LettersPanel = ({ gameAlphabet, setLetter }) => (
 );
 
 const Wrapper = styled.div`
-  max-width: 250px;
+  @media (max-width: 500px) {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 `;
 const LetterBtn = styled(Button)`
   width: 40px;

@@ -10,7 +10,7 @@ export const gallowsBottomPart = {
 };
 export const gallowsVerticalPart = {
   type: "line",
-  strokeWidth: 3,
+  strokeWidth: 5,
   stroke: "#A41F00",
   opacity: 0.5,
   x1: 20,
@@ -20,7 +20,7 @@ export const gallowsVerticalPart = {
 };
 export const gallowsTopPart = {
   type: "line",
-  strokeWidth: 3,
+  strokeWidth: 4,
   stroke: "#A41F00",
   opacity: 0.5,
   x1: 10,

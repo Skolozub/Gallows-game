@@ -4,6 +4,7 @@ import { generateWord } from "../functions/generate-word";
 import { secretSymbol, alphabet } from "../constants/global";
 import * as routes from "../constants/routes";
 import { history } from "..";
+import { easy } from "../constants/level-of-difficulty";
 
 export const GamePageContainer = ({ component: Component, render }) => {
   const [randWord, setRandWord] = useState("");
@@ -33,18 +34,27 @@ export const GamePageContainer = ({ component: Component, render }) => {
       const isGameNotComplete = secret.includes(secretSymbol);
       if (isSecretNotInit || isGameNotComplete) return null;
 
-      history.push(routes.finish);
+      history.push(routes.win);
     };
 
     checkCompletionOfGame();
   }, [secret]);
 
   useEffect(() => {
-    const openLetterInSecret = () => {
-      const isLetterNotSet = !currentLetter;
-      const isWordNotInit = !randWord.length;
-      const isLetterNotInTheWord = !randWord.includes(currentLetter);
+    const isGameOver = countOfErrorLetters >= easy.length;
+    if (isGameOver) history.push(routes.gameOver);
+  }, [countOfErrorLetters]);
+
+  useEffect(() => {
+    const isLetterNotSet = !currentLetter;
+    const isWordNotInit = !randWord.length;
+    const isLetterNotInTheWord = !randWord.includes(currentLetter);
+
+    const setError = () => {
       isLetterNotInTheWord && setErrorLetter(prevCount => prevCount + 1);
+    };
+
+    const openLetterInSecret = () => {
       if (isLetterNotSet || isWordNotInit || isLetterNotInTheWord) return null;
 
       const secretChanger = prevSecret =>
@@ -59,6 +69,7 @@ export const GamePageContainer = ({ component: Component, render }) => {
       setSecret(secretChanger);
     };
 
+    setError();
     openLetterInSecret();
   }, [randWord, currentLetter]);
 
@@ -81,7 +92,6 @@ export const GamePageContainer = ({ component: Component, render }) => {
     disablePressedLetter();
   }, [currentLetter]);
 
-  console.log(randWord, secret, currentLetter);
   if (Component)
     return (
       <Component

@@ -33,14 +33,27 @@ export const Game = () => (
 
 const BodyWrapper = styled.div`
   display: flex;
+  @media (max-width: 500px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 const LeftSide = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
+  @media (max-width: 750px) {
+    width: 40%;
+  }
 `;
 const RightSide = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
+  @media (max-width: 750px) {
+    width: 70%;
+  }
+  @media (max-width: 750px) {
+    width: 100%;
+  }
 `;

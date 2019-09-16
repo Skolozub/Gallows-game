@@ -13,6 +13,9 @@ const Wrapper = styled(Card)`
   width: 80%;
   max-width: 600px;
   margin: auto;
+  @media (max-width: 750px) {
+    width: 100%;
+  }
 `;
 const CardBody = styled(Card.Body)`
   display: flex;
