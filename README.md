@@ -14,4 +14,4 @@ npm start
 
 [codesandbox example](https://codesandbox.io/s/gallows-game-o5pn1)
 
-![screenshot]()
+![screenshot](https://github.com/Skolozub/Gallows-game/blob/master/screenshot.jpg)
